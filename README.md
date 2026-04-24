@@ -21,38 +21,40 @@
 ## 🚀 快速开始
 
 ### 环境要求
-
 - Python 3.10+
-- Streamlit
-
+### 获取 API 密钥
+你需要准备以下 API 密钥：
+| 服务 | 说明 | 获取地址 |
+|------|------|----------|
+| LLM API | 阿里云百炼 API Key | https://bailian.console.aliyun.com/ |
+| 高德地图 Web服务 Key | 用于景点搜索、天气查询 | https://console.amap.com/ |
+| 高德地图 Web端 Key | 用于前端地图显示 | https://console.amap.com/ |
+| Pexels API Key | 用于景点图片（可选） | https://www.pexels.com/api/ |
 ### 安装步骤
+#### 1. 克隆项目或直接下载 ZIP
+克隆项目：git clone https://github.com/Chenquanwe/streamlit-travel-planner.git
 
-# 1. 克隆项目
-git clone https://github.com/你的用户名/streamlit-travel-planner.git
+直接下载：访问 https://github.com/Chenquanwe/streamlit-travel-planner ，点击绿色的 "Code" 按钮
+#### 2.进入目录
 cd streamlit-travel-planner
+#### 3. 安装依赖
+pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/
+#### 4. 配置环境变量
+##### 复制 .env.example 并重命名为 .env，然后填入你的 API 密钥
+```text
+# 阿里云百炼配置
+LLM_API_KEY=sk-你的API密钥
+LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+LLM_MODEL=qwen-plus
 
-# 2. 创建并激活虚拟环境
-# Windows
-python -m venv venv
-venv\Scripts\activate
+# 高德地图配置
+AMAP_API_KEY=你的高德Web服务Key
+AMAP_WEB_KEY=你的高德Web端JS API Key
 
-# macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
-
-# 3. 安装依赖
-pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-
-# 4. 配置环境变量
-# 复制 .env.example 并重命名为 .env，然后填入你的 API 密钥
-copy .env.example .env
-# 或
-# cp .env.example .env
-
-# 然后用记事本打开 .env 填入你的密钥
-notepad .env
-
-# 5. 运行应用
+# Pexels 图片API（可选）
+PEXELS_API_KEY=你的Pexels API Key
+```
+#### 5. 运行应用
 streamlit run app.py
 ## 📁 项目结构
 ```text
