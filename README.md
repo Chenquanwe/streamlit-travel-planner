@@ -27,49 +27,72 @@
 
 ### 安装步骤
 
-1. **克隆项目**
-   ```bash
-   git clone https://github.com/你的用户名/streamlit-travel-planner.git
-   cd streamlit-travel-planner
-2、创建并激活虚拟环境
-  # Windows
-  python -m venv venv
-  venv\Scripts\activate
-  
-  # macOS/Linux
-  python3 -m venv venv
-  source venv/bin/activate
-3、安装依赖
-  pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
-4、配置环境变量
-  复制 .env.example 并重命名为 .env
-  填入你的 API 密钥
-5、运行应用
-  streamlit run app.py
-📁 项目结构
-  streamlit-travel-planner/
-  ├── app.py                 # Streamlit 主入口
-  ├── amap_mcp_server.py     # MCP 服务器（可选）
-  ├── agents/                # 多智能体模块
-  │   ├── base_agent.py      # Agent 基类
-  │   ├── attraction_agent.py # 景点搜索
-  │   ├── weather_agent.py    # 天气查询
-  │   ├── hotel_agent.py      # 酒店推荐
-  │   ├── planner_agent.py    # 行程规划
-  │   └── supervisor.py       # 监督者
-  ├── tools/                  # 工具模块
-  │   └── amap_tools.py       # 高德地图工具
-  ├── services/               # 服务模块
-  │   └── image_service.py    # 图片服务
-  ├── models/                 # 数据模型
-  │   └── schemas.py          # Pydantic 模型
-  ├── ui/                     # 前端界面
-  │   ├── home.py             # 表单页面
-  │   ├── result.py           # 结果展示
-  │   ├── components.py       # UI 组件
-  │   └── styles.py           # CSS 样式
-  └── requirements.txt        # 依赖清单
-❓ 常见问题
+# 1. 克隆项目
+git clone https://github.com/你的用户名/streamlit-travel-planner.git
+cd streamlit-travel-planner
+
+# 2. 创建并激活虚拟环境
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# macOS/Linux
+python3 -m venv venv
+source venv/bin/activate
+
+# 3. 安装依赖
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 4. 配置环境变量
+# 复制 .env.example 并重命名为 .env，然后填入你的 API 密钥
+copy .env.example .env
+# 或
+# cp .env.example .env
+
+# 然后用记事本打开 .env 填入你的密钥
+notepad .env
+
+# 5. 运行应用
+streamlit run app.py
+## 📁 项目结构
+```text
+streamlit-travel-planner/
+├── app.py                      # Streamlit 主入口
+├── amap_mcp_server.py          # MCP 服务器（可选）
+├── requirements.txt            # Python 依赖清单
+├── .env.example                # 环境变量模板
+├── .gitignore                  # Git 忽略文件
+├── README.md                   # 项目说明文档
+│
+├── agents/                     # 多智能体模块
+│   ├── __init__.py
+│   ├── base_agent.py           # Agent 基类
+│   ├── attraction_agent.py     # 景点搜索
+│   ├── weather_agent.py        # 天气查询
+│   ├── hotel_agent.py          # 酒店推荐
+│   ├── planner_agent.py        # 行程规划
+│   └── supervisor.py           # 监督者
+│
+├── models/                     # 数据模型模块
+│   ├── __init__.py
+│   └── schemas.py              # Pydantic 模型
+│
+├── services/                   # 服务模块
+│   ├── __init__.py
+│   └── image_service.py        # 图片服务
+│
+├── tools/                      # 工具模块
+│   ├── __init__.py
+│   └── amap_tools.py           # 高德地图工具
+│
+└── ui/                         # 前端界面模块
+    ├── __init__.py
+    ├── home.py                 # 首页表单
+    ├── result.py               # 结果展示
+    ├── components.py           # UI 组件
+    └── styles.py               # CSS 样式
+```
+## ❓ 常见问题
 地图无法显示
 检查 .env 中的 AMAP_WEB_KEY 是否配置正确
 
@@ -80,5 +103,5 @@ API 调用失败
 
 检查 AMAP_API_KEY（高德 Web服务）是否有效
 
-📄 许可证
+## 📄 许可证
 MIT License
